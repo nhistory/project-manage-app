@@ -67,4 +67,23 @@ To connect with application, select ```go back``` and make a choice ```connect y
 
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/39740066/173715510-f5195abf-ce3d-4078-b69d-4f5fb079f73b.png">
 
+3. Connect to the database
+
+By using ```mongoose``` module, you can connect MongoDB with application. Inside of ```config``` folder, ```db.js``` have a ```connectDB``` as a module.
+
+```javascript
+const mongoose = require('mongoose');
+
+const connectDB = async () => {
+  const conn = await mongoose.connect(process.env.MONGO_URI);
+
+  console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline.bold);
+};
+
+module.exports = connectDB;
+```
+
+If you want to anticipate message as specific color and underline, we can use ```colors``` module.
+        
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/39740066/173841498-528a746b-a72e-4453-a86c-52ea993dc972.png">
 
