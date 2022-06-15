@@ -87,3 +87,9 @@ If you want to anticipate message as specific color and underline, we can use ``
         
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/39740066/173841498-528a746b-a72e-4453-a86c-52ea993dc972.png">
 
+4. Fetch MongoDB data
+
+In order to fetch data from MongoDB after connected with, we need to make new schema for MongoDB again not for GraphQL. In this project, ```Client.js``` and ```Project.js``` file was made inside of ```models``` folder. And changed ```schema.js``` return values of each client and project.
+
+## References
+- https://www.youtube.com/watch?v=BcLNfwF04Kw
