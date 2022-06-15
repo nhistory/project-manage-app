@@ -7,7 +7,8 @@
 An application to manage clients and project data that can make CRUD functionality with simple web page.
 
 - Built backend with expressjs and handled by using graphQL.
-- Used graphiql for checking graphql schema on the browser. 
+- Used graphiql for checking graphql schema on the browser.
+- Made cloud-based database by using mongodb atlas and controled with mongodb compass.  
 
 ## Initialize application
 - initialize project: ```npm init -y``` -> ```package.json``` created
