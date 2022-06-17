@@ -6,9 +6,10 @@
 
 An application to manage clients and project data that can make CRUD functionality with simple web page.
 
-- Built backend with expressjs and handled by using graphQL.
+- Built backend with expressjs and handled by using graphQL mutation.
 - Used graphiql for checking graphql schema on the browser.
 - Made cloud-based database by using mongodb atlas and controled with mongodb compass.  
+- Build client side with React and apollo, graphql, react-router-dom, react-icons packages.
 
 ## Initialize application
 - initialize project: ```npm init -y``` -> ```package.json``` created
@@ -106,6 +107,17 @@ In the same way, we can add ```deleteClient``` field to delete a client data wit
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/39740066/173854727-1176dbba-d678-499c-b4eb-ef7064f5ae9f.png">
 
 ```project``` database also can be added, deleted and updated by ustin ```mutation``` object type. This code is added into ```schema.js```.
+
+## Build client side with React framework.
+
+### 1. Create react application
+
+We can initialize react app in the ```client``` folder with ```npx create-react-app client``` command. After that, some packages should be installed by ```npm i @apollo/client graphql react-router-dom react-icons``` command.
+
+#### apollo/client
+#### graphql
+#### react-router-dom
+#### react-icons
         
 ## References
 - https://www.youtube.com/watch?v=BcLNfwF04Kw
