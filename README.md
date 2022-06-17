@@ -91,7 +91,7 @@ If you want to anticipate message as specific color and underline, we can use ``
 
 In order to fetch data from MongoDB after connected with, we need to make new schema for MongoDB again not for GraphQL. In this project, ```Client.js``` and ```Project.js``` file was made inside of ```models``` folder. And changed ```schema.js``` return values of each client and project.
 
-### 5. Add client with GraphQL and MongoDB
+### 5. CRUD client and project with GraphQL and MongoDB
        
 For handling MongoDB database with GraphQL, ```mutation``` object type can be added inside of ```schema.js```. Name of object is ```Mutation``` and you can add client data by using GraphiQL like below.
         
@@ -105,6 +105,7 @@ In the same way, we can add ```deleteClient``` field to delete a client data wit
         
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/39740066/173854727-1176dbba-d678-499c-b4eb-ef7064f5ae9f.png">
 
+```project``` database also can be added, deleted and updated by ustin ```mutation``` object type. This code is added into ```schema.js```.
         
 ## References
 - https://www.youtube.com/watch?v=BcLNfwF04Kw
