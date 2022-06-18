@@ -115,9 +115,26 @@ In the same way, we can add ```deleteClient``` field to delete a client data wit
 We can initialize react app in the ```client``` folder with ```npx create-react-app client``` command. After that, some packages should be installed by ```npm i @apollo/client graphql react-router-dom react-icons``` command.
 
 #### apollo/client
-#### graphql
+Apollo Client is a comprehensive state management library for JavaScript that enables you to manage both local and remote data with GraphQL. Use it to fetch, cache, and modify application data, all while automatically updating your UI. Apollo Client helps you structure code in an economical, predictable, and declarative way that's consistent with modern development practices. The core @apollo/client library provides built-in integration with React, and the larger Apollo community maintains integrations for other popular view layers.
+        
+- Whenever Apollo Client fetches query results from your server, it automatically caches those results locally. This makes later executions of that same query extremely fast.
+- Apollo Client stores the results of your GraphQL queries in a local, normalized, in-memory cache. This enables Apollo Client to respond almost immediately to queries for already-cached data, without even sending a network request.
+
 #### react-router-dom
+The react-router-dom package contains bindings for using ```React Router``` in web applications.
+        
+React Router includes three main packages:
+- ```react-router```, the core package for the router
+- ```react-router-dom```, which contains the DOM bindings for React Router. In other words, the router components for websites
+- ```react-router-native```, which contains the React Native bindings for React Router. In other words, the router components for an app development environment using React Native
+
+React Router DOM enables you to implement dynamic routing in a web app. Unlike the traditional routing architecture in which the routing is handled in a configuration outside of a running app, React Router DOM facilitates component-based routing according to the needs of the app and platform.
+
 #### react-icons
+Include popular icons in your React projects easily with react-icons, which utilizes ES6 imports that allows you to include only the icons that your project is using.
         
 ## References
 - https://www.youtube.com/watch?v=BcLNfwF04Kw
+- https://www.apollographql.com/docs/react/
+- https://blog.logrocket.com/react-router-dom-tutorial-examples/
+- https://github.com/react-icons/react-icons
