@@ -133,6 +133,36 @@ React Router DOM enables you to implement dynamic routing in a web app. Unlike t
 #### react-icons
 Include popular icons in your React projects easily with react-icons, which utilizes ES6 imports that allows you to include only the icons that your project is using.
         
+### 2. Connect between GraphQL and React client
+        
+In order to use state management library Apollo Client, we need to import ```ApolloProvider```,```ApolloClient```,```InMemoryCache``` from ```@apollo/client```. And make new ApolloClient class with ```client``` variable.
+
+- App.js
+```javascript
+import Header from './components/Header';
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:5000/graphql', //backend graphql url
+  cache: new InMemoryCache(),
+});
+
+function App() {
+  return (
+    <>
+      <ApolloProvider client={client}>
+        <Header />
+        <div className="container">
+          <h1>Hello World</h1>
+        </div>
+      </ApolloProvider>
+    </>
+  );
+}
+
+export default App;
+```
+        
 ## References
 - https://www.youtube.com/watch?v=BcLNfwF04Kw
 - https://www.apollographql.com/docs/react/
