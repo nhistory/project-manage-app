@@ -162,9 +162,68 @@ function App() {
 
 export default App;
 ```
+
+### 3. Fetch and display clients
         
+```src/components/Clients.jsx``` has a role to fetch and display clients data. For doing this, we need to import ```gql``` from ```@apollo/clients```. The query we want to execute by wrapping it in the gql template literal defined like below.
+        
+```javascript
+const GET_CLIENTS = gql`
+  query getClinets {
+    clients {
+      id
+      name
+      email
+      phone
+    }
+  }
+`
+```
+    
+Whenever this component renders, the useQuery hook automatically executes our query and returns a result object containing loading, error, and data properties:
+
+- Apollo Client tracks a query's error and loading state for you, which are reflected in the loading and error properties.
+- When the result of your query comes back, it's attached to the data property.
+        
+At this project, we should show up client data like this.
+        
+```javascript
+export default function Clients() {
+  const { loading, error, data } = useQuery(GET_CLIENTS);
+
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>Something Went Wrong</p>;
+
+  return (
+    <>
+      {!loading && !error && (
+        <table className="table table-hover mt-3">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.clients.map((client) => (
+              <ClientRow key={client.id} client={client} />
+            ))}
+          </tbody>
+        </table>
+      )}
+    </>
+  );
+}
+```
+Then we can see the Project Management App like below.
+
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/39740066/175552898-3a0d88cd-21f2-4301-a91f-1f6065e6fcdb.png">
+
 ## References
 - https://www.youtube.com/watch?v=BcLNfwF04Kw
 - https://www.apollographql.com/docs/react/
 - https://blog.logrocket.com/react-router-dom-tutorial-examples/
 - https://github.com/react-icons/react-icons
+- https://www.apollographql.com/docs/react/get-started/
