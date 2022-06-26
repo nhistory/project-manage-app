@@ -221,6 +221,33 @@ Then we can see the Project Management App like below.
 
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/39740066/175552898-3a0d88cd-21f2-4301-a91f-1f6065e6fcdb.png">
 
+### 4. Implement react-router-dom
+
+In order to show up the project view page, we need to use ```react-router-dom``` on the ```App.js```.
+
+```Javascript
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+```
+
+After that, you can add ```Router``` setting like below. Inside of ```<Router>```, we can make several ```<Route>``` another inside of ```<Routes>```. Each of route has their own path address and component directed to link. (```<Home />```,```<Project />```,```<NotFound />```).
+
+```Javascript
+    <>
+      <ApolloProvider client={client}>
+        <Router>
+          <Header />
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects/:id" element={<Project />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        </Router>
+      </ApolloProvider>
+    </>
+```
+
 ## References
 - https://www.youtube.com/watch?v=BcLNfwF04Kw
 - https://www.apollographql.com/docs/react/
