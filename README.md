@@ -250,6 +250,29 @@ After that, you can add ```Router``` setting like below. Inside of ```<Router>``
 
 - ```useParams```: The useParams hook returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <Route path>. Child routes inherit all params from their parent routes. In this project, ```Project.jsx``` uses ```useParams``` for parsing ```id``` data from <Route path> which is ```ProjectCard.jsx``` indicated.
 
+- ```useNavigate```: The useNavigate hook returns a function that lets you navigate programmatically, for example after a form is submitted. If using replace: true, the navigation will replace the current entry in the history stack instead of adding a new one. In order to move home page after delete project by ```onClick```, we can take ```useNavigate()``` with ```onCompleted``` key value.
+
+DeleteProjectButton.jsx
+```javascript
+export default function DeleteProjectButton({ projectId }) {
+  const navigate = useNavigate();
+
+  const [deleteProject] = useMutation(DELETE_PROJECT, {
+    variables: { id: projectId },
+    onCompleted: () => navigate('/'),
+    refetchQueries: [{ query: GET_PROJECTS }],
+  });
+
+  return (
+    <div className="d-flex mt-5 ms-auto">
+      <button className="btn btn-danger m-2" onClick={deleteProject}>
+        <FaTrash className="icon" /> Delete Project
+      </button>
+    </div>
+  );
+}
+```
+
 ## References
 - https://www.youtube.com/watch?v=BcLNfwF04Kw
 - https://www.apollographql.com/docs/react/
