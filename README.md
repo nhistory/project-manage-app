@@ -4,7 +4,7 @@
 
 ## Project Management App
 
-An application to manage clients and project data that can make CRUD functionality with simple web page.
+A MERN stack application to manage clients and project data that can make CRUD functionality with simple web page.
 
 - Built backend with expressjs and handled by using graphQL mutation.
 - Used graphiql for checking graphql schema on the browser.
