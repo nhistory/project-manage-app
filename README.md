@@ -248,6 +248,8 @@ After that, you can add ```Router``` setting like below. Inside of ```<Router>``
     </>
 ```
 
+- ```useParams```: The useParams hook returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <Route path>. Child routes inherit all params from their parent routes. In this project, ```Project.jsx``` uses ```useParams``` for parsing ```id``` data from <Route path> which is ```ProjectCard.jsx``` indicated.
+
 ## References
 - https://www.youtube.com/watch?v=BcLNfwF04Kw
 - https://www.apollographql.com/docs/react/
