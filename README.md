@@ -2,6 +2,22 @@
 
 ## Table of Contents
 
+- [Project Management App](#project-management-app)
+- [Initialize application](#initialize-application)
+- [GraphiQL](#graphiql)
+- [Initiate Mongodb - Mongodb atlas, Mongodb compass](#initiate-mongodb---mongodb-atlas--mongodb-compass)
+  * [1. Mongodb atlas](#1-mongodb-atlas)
+  * [2. Mongodb compass](#2-mongodb-compass)
+  * [3. Connect to the database](#3-connect-to-the-database)
+  * [4. Fetch MongoDB data](#4-fetch-mongodb-data)
+  * [5. CRUD client and project with GraphQL and MongoDB](#5-crud-client-and-project-with-graphql-and-mongodb)
+- [Build client side with React framework.](#build-client-side-with-react-framework)
+  * [1. Create react application](#1-create-react-application)
+  * [2. Connect between GraphQL and React client](#2-connect-between-graphql-and-react-client)
+  * [3. Fetch and display clients](#3-fetch-and-display-clients)
+  * [4. Implement react-router-dom](#4-implement-react-router-dom)
+- [References](#references)
+
 ## Project Management App
 
 A MERN stack application to manage clients and project data that can make CRUD functionality with simple web page.
