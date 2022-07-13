@@ -9,7 +9,7 @@ https://user-images.githubusercontent.com/39740066/176313841-a13de996-3b8e-411d-
 - [Project Management App](#project-management-app)
 - [Initialize application](#initialize-application)
 - [GraphiQL](#graphiql)
-- [Initiate Mongodb - Mongodb atlas, Mongodb compass](#initiate-mongodb---mongodb-atlas--mongodb-compass)
+- [Initiate Mongodb - Mongodb atlas, Mongodb compass](https://github.com/nhistory/project-manage-app/edit/master/README.md#initiate-mongodb---mongodb-atlas-mongodb-compass)
   * [1. Mongodb atlas](#1-mongodb-atlas)
   * [2. Mongodb compass](#2-mongodb-compass)
   * [3. Connect to the database](#3-connect-to-the-database)
@@ -20,6 +20,9 @@ https://user-images.githubusercontent.com/39740066/176313841-a13de996-3b8e-411d-
   * [2. Connect between GraphQL and React client](#2-connect-between-graphql-and-react-client)
   * [3. Fetch and display clients](#3-fetch-and-display-clients)
   * [4. Implement react-router-dom](#4-implement-react-router-dom)
+- [Deploy with heroku](#deploy-with-heroku)
+  * [1. Setup before deploy.](#1-setup-before-deploy)
+  * [2. Deploy with heroku](#2-deploy-with-heroku)
 - [References](#references)
 
 ## Project Management App
@@ -30,6 +33,8 @@ A MERN stack application to manage clients and project data that can make CRUD f
 - Used graphiql for checking graphql schema on the browser.
 - Made cloud-based database by using mongodb atlas and controled with mongodb compass.  
 - Build client side with React and apollo, graphql, react-router-dom, react-icons packages.
+- Deploy with PaaS service heroku application.
+- Resource: [Git repo](https://github.com/nhistory/project-manage-app) | [Demo](https://mernappsh.herokuapp.com/)
 
 ## Initialize application
 - initialize project: ```npm init -y``` -> ```package.json``` created
@@ -293,6 +298,50 @@ export default function DeleteProjectButton({ projectId }) {
 }
 ```
 
+## Deploy with heroku
+
+### 1. Setup before deploy.
+
+Before start heroku deploy process, we need to add some codes on ```server/index.js``` for production environment.
+
+```javascript
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('*', (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, '../', 'client', 'build', 'index.html')
+    )
+  );
+} else {
+  app.get('/', (req, res) => res.send('Please set to production'));
+}
+```
+
+Enter ```npm run build``` command inside of ```client``` folder. Then project will be built and ```build``` folder is ready to be deployed.
+
+### 2. Deploy with heroku 
+
+After sign in [heroku website](https://www.heroku.com), ```heroku login``` on the project folder root location. And create new app by using ```heroku create mernappsh```. (mernappsh is a name of heroku application).
+
+You can check heroku app with ```https://mernappsh.herokuapp.com/```.
+
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/39740066/176570127-b7553987-1fe9-48df-8cc7-e50e51a3b4d4.png">
+
+Go to the heroku dashboard, select ```mernappsh``` app and select ```Settings```. Add Config Vars like below.
+
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/39740066/176570643-614f040f-53d7-4bb8-b3e1-face74e170d6.png">
+ 
+Then we can start git push process.
+ 
+```bash
+git add .
+git commit -m 'Prepare Deploy'
+git push heroku master
+```
+
+If there is H10 error, this [video clip](https://www.youtube.com/watch?v=68iCwSmSIvA) would be helpful. In order to use graphql in heroku, uri ```http://localhost:5000``` should be deleted related with ApolloClient. You can check this [video clip](https://www.youtube.com/watch?v=ok6bu-3XRA8). 
+ 
 ## References
 - https://www.youtube.com/watch?v=BcLNfwF04Kw
 - https://www.apollographql.com/docs/react/
